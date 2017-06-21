@@ -1,0 +1,37 @@
+databaseChangeLog:
+- changeSet:
+    id: 1
+    author: Jens Geiregat
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: axon.sql
+        relativeToChangelogFile: true
+- changeSet:
+    id: 2
+    author: Jens Geiregat
+    changes:
+    - sqlFile:
+        encoding: utf8
+        path: quartz/quartz.sql
+        relativeToChangelogFile: true
+- changeSet:
+    id: 3
+    author: Jens Geiregat
+    changes:
+    - createTable:
+        tableName: messages
+        columns:
+        - column:
+            name: id
+            type: int
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              updateable: false
+              nullable: false
+        - column:
+            name: content
+            type: varchar(255)
+            constraints:
+              nullable: false
